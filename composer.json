@@ -13,7 +13,7 @@
   "autoload": {
     "psr-4": {
       "SilverStripe\\FullTextSearch\\": "fulltextsearch/src/",
-      "Apache_Solr_": "solr-php-client"
+      "Apache_Solr_": "solr-php-client/"
     }
   }
 }
