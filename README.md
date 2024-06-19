@@ -1,1 +1,1 @@
-# Team
+# Solr Package for custom Webdav

@@ -1,0 +1,19 @@
+{
+  "name":"innomedia/solr",
+  "description": "CustomSolr Module",
+  "authors": [
+    {
+      "name":"Innomedia AG",
+      "email": "bk@innomedia.de"
+    }
+  ],
+  "require":{
+    "silverstripe/recipe-cms": "^4"
+  },
+  "autoload": {
+    "psr-4": {
+      "SilverStripe\\FullTextSearch\\": "fulltextsearch/src/",
+      "Apache_Solr_": "solr-php-client"
+    }
+  }
+}
