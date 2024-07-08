@@ -16,7 +16,8 @@ class WebDAV
 
     public static function exists($url)
     {
-        $url = str_replace(":8983","",$url);
+        $port = \SilverStripe\FullTextSearch\Solr\Solr::solr_options()["port"];
+        $url = str_replace(":".$port,"",$url);
         // WebDAV expects that checking a directory exists has a trailing slash
         if (substr($url, -1) != '/') {
             $url .= '/';
@@ -39,7 +40,8 @@ class WebDAV
 
     public static function mkdir($url)
     {
-        $url = str_replace(":8983","",$url);
+        $port = \SilverStripe\FullTextSearch\Solr\Solr::solr_options()["port"];
+        $url = str_replace(":".$port,"",$url);
         $ch = self::curl_init(rtrim($url, '/') . '/', 'MKCOL');
 
         $res = curl_exec($ch);
@@ -50,7 +52,8 @@ class WebDAV
 
     public static function put($handle, $url)
     {
-        $url = str_replace(":8983","",$url);
+        $port = \SilverStripe\FullTextSearch\Solr\Solr::solr_options()["port"];
+        $url = str_replace(":".$port,"",$url);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 
