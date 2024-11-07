@@ -51,26 +51,26 @@ class Solr_Configure extends Solr_BuildTask
     {
         echo "test";
         $index = $instance->getIndexName();
-        $this->getLogger()->addInfo("Configuring $index.");
+        $this->getLogger()->Info("Configuring $index.");
         
         // Upload the config files for this index
-        $this->getLogger()->addInfo("Uploading configuration ...");
+        $this->getLogger()->Info("Uploading configuration ...");
         $instance->uploadConfig($store);
         
         // Then tell Solr to use those config files
         $service = Solr::service();
         if ($service->coreIsActive($index)) {
             echo "reload";
-            $this->getLogger()->addInfo("Reloading core ...");
+            $this->getLogger()->Info("Reloading core ...");
             $service->coreReload($index);
             
         } else {
             echo "create";
-            $this->getLogger()->addInfo("Creating core ...");
+            $this->getLogger()->Info("Creating core ...");
             $service->coreCreate($index, $store->instanceDir($index));
         }
 
-        $this->getLogger()->addInfo("Done");
+        $this->getLogger()->Info("Done");
         
     }
 
