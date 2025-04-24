@@ -25,7 +25,7 @@
         "monolog/monolog": "^3",
         "innomedia/solr-php-client": "^1.0",
         "symfony/process": "^3.2",
-        "tractorcow/silverstripe-proxy-db" : "~0.1"
+        "tractorcow/silverstripe-proxy-db" : "^2"
     },
     "require-dev": {
         "silverstripe/cms": "^5.0",
