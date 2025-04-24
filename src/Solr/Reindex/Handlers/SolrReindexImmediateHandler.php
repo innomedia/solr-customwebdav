@@ -91,13 +91,11 @@ class SolrReindexImmediateHandler extends SolrReindexBase
         $scriptPath = sprintf("%s%scli-script.php", $frameworkPath, DIRECTORY_SEPARATOR);
         $scriptTask = "{$php} {$scriptPath} dev/tasks/{$taskName}";
 
-        $cmd = "{$scriptTask} index={$indexClassEscaped} class={$class} group={$group} groups={$groups} variantstate={$statevar}";
-        $cmd .= " verbose=1";
+        $cmd = [$php, $scriptPath, "dev/tasks/" . $taskName, "index={$indexClassEscaped}", "class={$class}", "group={$group}", "groups={$groups}", "variantstate=" . $statevar, "verbose=1"];
         $logger->info("Running '$cmd'");
 
         // Execute script via shell
         $process = new Process($cmd);
-        $process->inheritEnvironmentVariables();
         $process->run();
 
         $res = $process->getOutput();
