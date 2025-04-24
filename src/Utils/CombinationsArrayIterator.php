@@ -32,7 +32,7 @@ class CombinationsArrayIterator implements Iterator
         $this->rewind();
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         if (!$this->numArrays) {
             $this->isValid = false;
@@ -46,12 +46,12 @@ class CombinationsArrayIterator implements Iterator
         }
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return $this->isValid;
     }
 
-    public function next()
+    public function next(): void
     {
         $this->k++;
 
@@ -68,7 +68,7 @@ class CombinationsArrayIterator implements Iterator
         }
     }
 
-    public function current()
+    public function current(): mixed
     {
         $res = array();
         for ($i = 0; $i < $this->numArrays; $i++) {
@@ -77,7 +77,7 @@ class CombinationsArrayIterator implements Iterator
         return $res;
     }
 
-    public function key()
+    public function key(): mixed
     {
         return $this->k;
     }
