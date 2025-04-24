@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "^4.0",
+        "silverstripe/framework": "^5.0",
         "monolog/monolog": "~1.15",
         "innomedia/solr-php-client": "^1.0",
         "symfony/process": "^3.2",
