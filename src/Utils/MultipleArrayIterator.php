@@ -22,7 +22,7 @@ class MultipleArrayIterator implements Iterator
         $this->rewind();
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->active = $this->arrays;
         if ($this->active) {
@@ -30,17 +30,17 @@ class MultipleArrayIterator implements Iterator
         }
     }
 
-    public function current()
+    public function current(): mixed
     {
         return $this->active ? current($this->active[0]) : false;
     }
 
-    public function key()
+    public function key(): mixed
     {
         return $this->active ? key($this->active[0]) : false;
     }
 
-    public function next()
+    public function next(): void
     {
         if (!$this->active) {
             return;
@@ -54,7 +54,7 @@ class MultipleArrayIterator implements Iterator
         }
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return $this->active && (current($this->active[0]) !== false);
     }
